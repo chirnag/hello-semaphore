@@ -1,0 +1,21 @@
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Build Service 1
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - echo "building service1"
+    dependencies: []
+  - name: Build Service2
+    dependencies: []
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - echo "building service2"
